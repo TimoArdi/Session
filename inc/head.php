@@ -37,10 +37,11 @@ session_start();
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav navbar-right">
+                     <?php  if(isset($_SESSION['name'])): ?>
                     <li><a href="#">Chocolates chips</a></li>
                     <li><a href="#">Nuts</a></li>
                     <li><a href="#">Gluten full</a></li>
-                    <?php  if(isset($_SESSION['name'])): ?>
+
                         <li><a href="../logout.php">Log out</a></li>
                     <?php else: ?>
                         <li><a href="../login.php"> Login</a></li>
