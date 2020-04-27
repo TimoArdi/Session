@@ -4,12 +4,11 @@
 
 if (!empty($_SESSION['name']) && !empty($_GET['add_to_cart'])){
     if (!isset($_SESSION['cart'])){
-            $_SESSION['cart'] = [];
+        $_SESSION['cart'] = [];
     }
     array_push($_SESSION['cart'],$_GET['add_to_cart']);
 }
 ?>
-
 <section class="cookies container-fluid">
     <div class="row">
         <?php foreach ($catalog as $id => $cookie) { ?>
@@ -19,9 +18,9 @@ if (!empty($_SESSION['name']) && !empty($_GET['add_to_cart'])){
                     <figcaption class="caption">
                         <h3><?= $cookie['name']; ?></h3>
                         <p><?= $cookie['description']; ?></p>
-                        <a href="?add_to_cart=<?= $id; ?>" class="btn btn-primary">
+            <?php  if(isset($_SESSION['name'])): ?><a href="?add_to_cart=<?= $id; ?>" class="btn btn-primary">
                             <span class="glyphicon glyphicon-plus" aria-hidden="true"></span> Add to cart
-                        </a>
+                        </a> <?php endif; ?>
                     </figcaption>
                 </figure>
             </div>
